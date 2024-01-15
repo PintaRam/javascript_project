@@ -1,81 +1,85 @@
-let userScore = 0 ;
-let CompScore = 0;
+const BASE_URL =
+  "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies";
+
+const dropdowns = document.querySelectorAll(".dropdown select")
+const btn = document.querySelector("form button");
+const fromCurr = document.querySelector(".from select");
+const toCurr = document.querySelector(".to select"); 
+const msg  = document.querySelector(".msg");
 
 
-const choices = document.querySelectorAll(".choice");
-const msg  = document.querySelector("#msg");
- const userSre = document.querySelector("#user-id");
- const compSre = document.querySelector("#comp-id");
-const genComGenerate=()=>
+
+
+for(let select of dropdowns)
 {
-    const Option = ["scissor" , "paper","rock"];
-    const randIdx = Math.floor(Math.random()*3);
-    return Option[randIdx];
-
-}
-
-const draw = ()=>
-{
-    console.log("Draw game")
-    msg.innerText = "Game was Draw";
-    msg.style.backgroundColor = "grey";
-}
-
-const showWinner = (userWin , userChoice, compChoice)=>
-{
-    if(userWin)
-    {   userScore++;
-        console.log("You win");
-        msg.innerText = `You Won! Your ${userChoice} beats ${compChoice}`;
-        userSre.innerText = userScore;
-        msg.style.backgroundColor = "green";
-
+    for(currcode in countryList)
+    {
+        let newOption = document.createElement("option");
+        newOption.innerText = currcode;
+        newOption.value = currcode;
+        
+        if(select.name === "from" && currcode === "USD")
+        {
+            newOption.selected = "selected";
+        }
+        if(select.name === "to" && currcode === "INR")
+        {
+            newOption.selected = "selected";
+        }
+        select.append(newOption);
     }
-    else{
-        CompScore++;
-        msg.innerText = `You Lost! ${compChoice} beats  Your ${userChoice}`;
-        console.log("You Lost");
-        compSre.innerText = CompScore;
-        msg.style.backgroundColor = "red";
-    }
+    select.addEventListener("change" ,(evt)=>
+    { 
+        updateFlag(evt.target);  
+    });
 }
 
-const playGame=(userChoice)=>
-{ console.log("User Choice is ",userChoice);
-  const compChoice = genComGenerate();
-  console.log("Computer choice",compChoice);
-  if(userChoice === compChoice)
-  {
-    //draw 
-    draw();
+
+
+
+
+const updateExchange = async () =>
+{
+    let amount = document.querySelector(".amount input");
+    let amtVal = amount.value;
+    if(amtVal === "" || amtVal < 1 )
+    {
+        amtVal = 1;
+        amount.value = "1";
+    }
+
+
+    const URL  = `${BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`
+
+    let response = await fetch(URL);
+    let data  = await response.json();
+    // console.log(data)
+    // console.log(toCurr.value)
+    let rate  = data[toCurr.value.toLowerCase()];
+    //console.log(rate)
+    let finalAmt  =amtVal*rate;
+
+    msg.innerText = `${amtVal} ${fromCurr.value} =  ${finalAmt} ${toCurr.value}`;
+};
+
+updateFlag=(element)=>
+{   //console.log(element)
+    let currcode = element.value;
+    //console.log(currcode)
+    let coutryCode = countryList[currcode];
+    let newSrc = `https://flagsapi.com/${coutryCode}/flat/64.png`;
+    let img  = element.parentElement.querySelector("img");
+    img.src = newSrc;
+}
+
+
+btn.addEventListener("click" , (evt)=>
+{
+    evt.preventDefault();  //prevent form loading the form 
+    updateExchange();
     
-  }else{
-    let userWin = true;
-    if(userChoice === "rock")
-    {   
-        //computer choice can be paper or scissor
-        userWin = compChoice === "scissor"?true:false;
-    }
-    else if(userChoice === "paper")
-    {
-        //computer choices can be scissor  or rock
-        userWin = compChoice === "rock"?true:false;
-    }
-    else
-    {
-        //userchoice is scissor
-        //computer choice can be paper or rock
-        userWin = compChoice === "paper"?true:false;
-    }
-    showWinner(userWin , userChoice , compChoice);
-  }
-
-}
-
-choices.forEach((choice)=>{
-  choice.addEventListener("click",()=>
-  {
-    const userChoice = choice.getAttribute("id");
-    playGame(userChoice);
-  });
+});
+window.addEventListener("load", ()=>
+{
+    updateExchange();
 });

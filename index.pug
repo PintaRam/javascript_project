@@ -1,0 +1,61 @@
+doctype html 
+html 
+    head 
+        title राम नृत्य अकादमी 
+        style 
+            include  ../static/style.css
+    body 
+        nav#navbar 
+            ul  
+                div#logo
+                    img(src="/static/logo.png", alt="श्री राम")
+                    |राम नृत्य अकादमी
+                li #[a(href="/") Home]
+                li #[a(href="/") About]
+                li #[a(href="/") Services] 
+                li #[a(href="/") Class Info]
+                li #[a(href="/") Contact us] 
+        section#introSection
+          div#di1 Welcome To the राम नृत्य अकादमी(Dance Academy)
+          div#di2 Eat sleep and dance 
+        
+        section#introMission
+            h2 हमारे मिशन (Our Mission)
+            div.card 
+                h4 सामूहिकता और सहयोग को प्रोत्साहित करना।
+                div.card-box
+                    div.card-img  
+                        img(src="/static/cardimg.png",alt = "श्री राम")
+                    div.card-content 
+                        p जीवन में सामूहिकता और सहयोग को बढ़ावा देना, समृद्धि और संबंधों में सुधार का माध्यम है।
+
+            div.card 
+                h4 स्वतंत्रता और स्वास्थ्य को बढ़ावा देना।
+                 div.card-box
+                    div.card-img  
+                        img(src="/static/img6.png",alt = "श्री राम")
+                    div.card-content 
+                        p स्वतंत्रता और स्वास्थ्य को बढ़ावा देकर लोगों को सकारात्मक जीवनशैली और समृद्धि की दिशा में मदद करें।
+            div.card 
+                h4 रस, भावना और साहित्य के माध्यम से समाज को संदेश पहुँचाना।
+                 div.card-box
+                    div.card-img  
+                        img(src="/static/img5.png",alt = "श्री राम")
+                    div.card-content 
+                        p साहित्य के माध्यम से रस और भावना को छूकर समाज में संदेश पहुँचाना, जो जीवन को सहारा देकर सार्थक बनाता है।
+
+
+        section#introSponser 
+            h3 Our Sponsers
+            div#sponser
+                img(src="/static/tata.png", alt="श्री राम")
+                img(src="/static/google.png", alt="श्री राम")
+                img(src="/static/micro.png", alt="श्री राम")
+                img(src="/static/hp.png", alt="श्री राम") 
+        footer#footer 
+            |Copyright ⓒ 2023 Ramacademy.com  |  All right reserverd
+
+
+
+        script 
+            include ../static/index.js

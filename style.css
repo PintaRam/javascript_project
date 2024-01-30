@@ -1,82 +1,207 @@
-*{
-    padding: 0;
+*
+{
     margin: 0;
+    padding: 0;
 }
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: rgb(241, 139, 4);
-}
-.container
-{
-    background-color: azure;
-    padding: 1rem;
-    border-radius: 1rem;
-    min-height: 50vh;
-    width: 50vh;
-}
-form{
-    margin: 2rem 0 1rem 0;
-}
-form select , button, input{
-    width: 100%;
-    border: none;
-    outline: none;
-    border-radius: 0.75rem;
-}
-form .para{
-    text-align: center;
-    font-size: x-large;
-}
-form input
-{
-    border: 1px solid lightgray; 
-    font-size: 1rem;
-    height: 1rem;
-    width: 20rem;
-    padding: 0.5rem;
-    text-align: center;
-    margin-right: 2rem;
-}
-.dropdown
-{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 2rem;
-}
-.select-container img{
-    max-width:  2rem;
-}
-.select-container
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 6rem;
-    border-radius: .5rem;
-    border: 1px solid lightgrey;
-}
-.select-container select
-{
-    font-size: 1rem;
-    width: auto;
 
-}
-.msg
+/* nav section */
+#navbar
 {
-margin: 2rem 0 2rem 0;
-}
-form button
-{   
-    height: 3rem;
-    background-color: rgb(16, 16, 219);
-    color: aliceblue;
-    font-size: 1.15rem;
-    cursor: pointer;
-
+    background-color: aqua;
+    height: 6rem;
     
 }
 
+#navbar ul{
+    
+    display: flex;
+    align-items: center;
+}
+#logo
+{   display: flex;
+    margin: 5px 40px;
+    width: 100px;
+    height: 100px;
+    margin-right: 400px;
+    align-items: center;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+#logo:hover
+{
+    color: orange;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    
+    cursor: pointer;
+}
+#logo img{
+    margin: 5px 10px;
+    width: 80%;
+    height: 80%;
+   
+    
+}
+#navbar li{
+    justify-items: center;
+    align-items: center;
+    margin-top: 20px;
+    list-style: none;
+    
+}
+#navbar li a
+{
+ padding: 10px 30px;
+ text-decoration: none;
+ font-family: Georgia, 'Times New Roman', Times, serif;
+ font-size: x-large;
+}
+#navbar li a:hover
+{
+ color: orange;
+ font-weight: bolder;
+ font-style: italic;
+ font-size: xx-large;
+ cursor: pointer;
+}
+
+
+/* introsection part */
+#introSection
+{   display: flex;
+    height:40rem;
+    justify-content: center;
+    align-items: center;
+    background: center/contain repeat url("/static/img2.jpeg");
+    font-size: 3rem;
+    color: white;
+    flex-direction: column;
+    
+}
+#introSection #di2
+{
+    font-size: 2rem;
+    color: seashell;
+}
+
+/* intromission part */
+
+#introMission 
+{  
+    height: 22rem;
+    width: 67%;
+    margin: auto;
+}
+ .card
+{   display: inline-block;
+    border: 3px solid black;
+    width: 30%;
+    margin-top: 60px;
+    margin-left: 20px;
+    height: 200px;
+    border-radius: 30px;
+    border-color: blue;
+    background-color: rgb(255, 255, 255);
+    
+    
+}
+.card-box
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+.card-img
+{
+    height: 121px;
+    padding: 0px 0px ;
+    margin: 5px 0px;
+   
+}
+ .card-img img 
+{  
+   height: inherit;
+   filter: inherit(-1);
+
+}
+.card-content p{
+   font-family: 'Times New Roman', Times, serif;
+   font-size: smaller;
+   font-weight: bold;
+   color: cadetblue;
+}
+#introMission h2{
+    color: blue;
+    text-align: center;
+    padding-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    
+}
+#introMission h2:hover{
+    transform: scale(2);
+    cursor:pointer;
+}
+
+ .card h4{
+    text-align: center;
+    padding-top: 5px;
+    padding-left: 5px;
+    margin-left: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+}
+.card:hover{
+    cursor:pointer;
+}
+
+
+/* sponser Section */
+
+#introSponser 
+{  
+    height: 20rem;
+
+}
+#introSponser h3{
+    color: blue;
+    text-align: center;
+    padding-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+}
+#introSponser h3:hover{
+    transform:scale(2);
+    cursor: pointer;
+}
+#sponser
+{
+    width: 70%;
+    align-items: center;
+    height: 50%;
+    justify-content: center;
+    margin: auto;
+    margin-top: 5rem;
+    display: flex;
+}
+#sponser img{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Footer section */
+
+#footer
+{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: blue;
+    color: white;
+}
